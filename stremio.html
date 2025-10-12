@@ -12,7 +12,7 @@
 </body>
 </html>
 -->
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -37,4 +37,25 @@
       });
   </script>
 </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Downloading manifest.json...</title>
+  <script>
+    window.onload = () => {
+      const a = document.createElement("a");
+      a.href = "http://24.220.43.81:60421/manifest.json";
+      a.download = "manifest.json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    };
+  </script>
+</head>
+<body>
+  <p>Downloading <strong>manifest.json</strong>...</p>
+</body>
 </html>
+
