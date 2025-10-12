@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta http-equiv="refresh" content="0; url=http://24.220.43.81:60421/manifest.json">
@@ -9,5 +9,32 @@
 </head>
 <body>
   <p>If you are not redirected automatically, <a href="http://24.220.43.81:60421/manifest.json">click here</a>.</p>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manifest Viewer</title>
+</head>
+<body>
+  <pre id="output">Loading manifest...</pre>
+
+  <script>
+    fetch('http://24.220.43.81:60421/manifest.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        document.getElementById('output').textContent = 'Error loading manifest: ' + error;
+      });
+  </script>
 </body>
 </html>
